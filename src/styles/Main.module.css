@@ -1,0 +1,75 @@
+/* Main.module.css */
+
+/* Reset styles */
+* {
+    margin: 100;
+    padding: 100;
+    box-sizing: border-box;
+  }
+  
+  /* Wrapper layout */
+  #wrapper {
+    margin: 0 auto;
+    max-width: 100%;
+    opacity: 1;
+    padding: (_size(section-spacing) * 1.5);
+    width: 90em;
+  }
+  
+  #sidebar {
+    background-color: #000000;
+  }
+
+  /* Main content layout */
+  #main {
+    flex: 1;
+    margin-top: 60px; /* Adjust for the height of the navigation bar */
+    display: flex;
+    overflow: hidden;
+  }
+  
+  /* Sidebar styles */
+  aside {
+    width: 250px;
+    background-color: #f4f4f4;
+    padding: 20px;
+    overflow-y: auto; /* Independent scrolling for the sidebar */
+    border-right: 1px solid #ddd;
+    box-shadow: inset -1px 0px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Main content section */
+  main {
+    flex: 1;
+    overflow-y: auto; /* Independent scrolling for the main content */
+    padding: 20px;
+    background-color: #fff;
+  }
+  
+  /* Footer styles */
+  footer {
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    padding: 10px 20px;
+    position: relative;
+    z-index: 1000;
+    margin-top: auto;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    #wrapper {
+      flex-direction: column;
+    }
+  
+    aside {
+      width: 100%;
+      border-right: none;
+      border-top: 1px solid #ddd;
+    }
+  
+    main {
+      padding: 15px;
+    }
+  }
