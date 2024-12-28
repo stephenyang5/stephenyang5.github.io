@@ -1,12 +1,13 @@
 import React from 'react';      
 import { Link } from 'react-router-dom';
 import '../styles/Sidebar.module.css';
+import myImage from '../assets/web-logo.png';
 
 const Sidebar = () => (
     <section id="sidebar">
         <section id="intro">
-            <Link to="/" className="logo">
-                <img alt="" />
+            <Link to="/">
+                <img src={myImage} alt="something here" className="logo"/>
             </Link>
             <header>
                 <h2>My Personal Website</h2>

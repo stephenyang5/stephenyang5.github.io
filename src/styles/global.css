@@ -149,3 +149,10 @@ body {
 #main {
   padding-left: 2em;
 }
+
+.logo {
+  width: 20em; /* Adjust to your preferred size */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 50%; /* Optional: Makes the image circular */
+  object-fit: cover; /* Ensures the image fits nicely */
+}

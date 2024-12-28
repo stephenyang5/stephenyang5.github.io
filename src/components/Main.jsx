@@ -5,6 +5,7 @@ import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Navigation from './NavBar';
 import Sidebar from './Sidebar';
 import '../styles/Main.module.css';
+
 const Main = ({ children = null, fullPage = false, title=null, description="default page description" }) => (
     <HelmetProvider>
         <Helmet
