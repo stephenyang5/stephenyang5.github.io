@@ -1,10 +1,17 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 const NotFound = () => {
     return (
-        <div>
-            <h1>Cannot find this Page</h1>
+        <>
+        <div id="lost">
+            <h1>404 - Page Not Found :(</h1>
+            <span>
+            <p> 
+                <Link to="/">Click here to return home!</Link>
+            </p>
+            </span>
         </div>
+        </>
     );
 }
 

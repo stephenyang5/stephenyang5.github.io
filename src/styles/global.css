@@ -7,19 +7,26 @@
 
 body{
   font-family: var(--font-primary);
+  font-weight: bold;
   line-height: var(--line-height-base);
   background-color: var(--bcolor);
   color: var(--pcolor);
+  outline-color: 5px var(--pcolor);
 }
 
+a {
+  color: inherit; /* Makes the link inherit the text color of its parent */
+  text-decoration: underline; /* Ensures the link is underlined */
+}
 /* find sidebar*/
 #sidebar{
   flex: 1 1 20%; /* Fixed minimum width */
   max-width: 25%; /* Sidebar takes up a maximum of 20% */
+  padding-right: 2em;
 }
 
 #sidebar > * {
-  border-top: solid 1px var(--pcolor); /* Replace `_palette(border)` with actual color value */
+  border-top: solid 2px var(--pcolor); /* Replace `_palette(border)` with actual color value */
   margin: 0 0 0 0; /* Replace `_size(section-spacing)` with actual value */
   padding: 0 0 0 0; /* Replace `_size(section-spacing)` with actual value */
 }
@@ -48,7 +55,7 @@ body {
   display: flex;
   justify-content: space-between;
   background-color: var(--pcolor); /* Replace _palette(bg) */
-  border-bottom: solid 1px #ddd; /* Replace _palette(border) */
+  border-bottom: solid 2px var(--pcolor); /* Replace _palette(border) */
   height: 3.5em;
   left: 0;
   line-height: 3.5em;
@@ -84,11 +91,12 @@ body {
 
 #header h1 a {
   font-size: .7em;
+  color: var(--bcolor); /* Replace _palette(fg-light) */
 }
 
 #header .links {
   flex: 1;
-  border-left: solid 1px #ddd; /* Replace _palette(border) */
+  border-left: solid 2px var(--bcolor); /* Replace _palette(border) */
   height: inherit;
   line-height: inherit;
   margin-left: 1.5em;
@@ -97,7 +105,7 @@ body {
 }
 
 #header .links ul li {
-  border-left: solid 1px #ddd; /* Replace _palette(border) */
+  border-left: solid 2px var(--bcolor); /* Replace _palette(border) */
   line-height: 1;
   margin-left: 1em;
   padding-left: 1em;
@@ -111,11 +119,12 @@ body {
 
 #header .links ul li a {
   border-bottom: 0;
-  font-family: "Arial", sans-serif; /* Replace _font(family-heading) */
+  font-family: inherit; /* Replace _font(family-heading) */
   font-size: 0.7em;
   font-weight: bold; /* Replace _font(weight-heading) */
   letter-spacing: 0.1em; /* Replace _font(kerning-heading) */
   text-transform: uppercase;
+  color: var(--bcolor); /* Replace _palette(fg-light) */
 }
 
 #header .main {
@@ -130,7 +139,7 @@ body {
 }
 
 #header .main ul li {
-  border-left: solid 1px #ddd; /* Replace _palette(border) */
+  border-left: solid 2px #ddd; /* Replace _palette(border) */
   height: inherit;
   line-height: inherit;
   white-space: nowrap;
@@ -147,12 +156,33 @@ body {
 }
 
 #main {
-  padding-left: 2em;
+  flex: 1; /* Let the main content fill the remaining space */
+  padding: 2em; /* Optional padding for spacing */
+  max-width: 100%; 
+  outline: 2px solid var(--pcolor);
+  
 }
 
+/* find logo */
 .logo {
-  width: 20em; /* Adjust to your preferred size */
-  height: auto; /* Maintain aspect ratio */
-  border-radius: 50%; /* Optional: Makes the image circular */
-  object-fit: cover; /* Ensures the image fits nicely */
+  width: 80%; 
+  height: auto; 
+  border-radius: 50%; 
+  object-fit: cover;
 }
+
+/* find not found*/
+
+#lost{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.blurb h2 {
+  margin-bottom: 8px; /* Adjust this value to control spacing */
+  line-height: 1.25;
+}
+
+
