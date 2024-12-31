@@ -11,7 +11,6 @@ body{
   line-height: var(--line-height-base);
   background-color: var(--bcolor);
   color: var(--pcolor);
-  outline-color: 5px var(--pcolor);
 }
 
 a {
@@ -158,9 +157,7 @@ body {
 #main {
   flex: 1; /* Let the main content fill the remaining space */
   padding: 2em; /* Optional padding for spacing */
-  max-width: 100%; 
-  outline: 2px solid var(--pcolor);
-  
+  max-width: 100%;   
 }
 
 /* find logo */
@@ -185,4 +182,14 @@ body {
   line-height: 1.25;
 }
 
+article{
+  padding: 1em;
+  padding: 1em;
+  outline: 2px solid var(--pcolor);
+}
+
+article h1 {
+  margin: 1em;
+  line-height: normal;
+}
 
