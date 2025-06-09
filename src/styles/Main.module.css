@@ -17,7 +17,7 @@
   }
   
   #sidebar {
-    background-color: #000000;
+    background-color: var(--bcolor);
   }
 
   /* Main content layout */
@@ -31,7 +31,7 @@
   /* Sidebar styles */
   aside {
     width: 250px;
-    background-color: #f4f4f4;
+    background-color: var(--bcolor);
     padding: 20px;
     overflow-y: auto; /* Independent scrolling for the sidebar */
     border-right: 1px solid #ddd;
@@ -43,13 +43,13 @@
     flex: 1;
     overflow-y: auto; /* Independent scrolling for the main content */
     padding: 20px;
-    background-color: #fff;
+    background-color: var(--bcolor);
   }
   
   /* Footer styles */
   footer {
-    background-color: #222;
-    color: #fff;
+    background-color: var(--fcolor);
+    color: var(--fcolor);
     text-align: center;
     padding: 10px 20px;
     position: relative;

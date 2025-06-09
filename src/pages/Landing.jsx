@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 const Landing = () => {
     return (
         <>
-        <Main title="Home" description="Welcome to my personal website">
             
             <article>
                 <h1>Welcome!</h1>
@@ -15,7 +14,6 @@ const Landing = () => {
                 some fun <Link to="/stats">stats</Link>, or <Link to="/contact">contact</Link> me.
                 </p>
             </article>
-        </Main>
     </>
     );
 };

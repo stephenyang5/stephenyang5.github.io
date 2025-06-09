@@ -1,16 +1,44 @@
+.theme-default {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --pcolor: #333;
+  --bcolor: #aaa;
+}
+
+.theme-candy {
+  --bg-color: #fff0f8;
+  --text-color: #ff3399;
+  --pcolor: #ff3399;
+  --bcolor: #ffe6f0;
+}
+
+.theme-dark {
+  --bg-color: #121212;
+  --text-color: #eeeeee;
+  --pcolor: #eeeeee;
+  --bcolor: #444444;
+}
+
+
 :root {
   --font-primary:"Courier New", Courier, monospace, sans-serif;
   --line-height-base: 3;
-  --bcolor: #e3dab5;
-  --pcolor: #644618;
+  /*--bcolor: #e3dab5;
+  --pcolor: #644618;*/
 }
 
-body{
+html,body{
+  background-color: var(--bcolor);
+}
+
+body {
   font-family: var(--font-primary);
   font-weight: bold;
   line-height: var(--line-height-base);
   background-color: var(--bcolor);
   color: var(--pcolor);
+  padding-top: 3.5em;
+
 }
 
 a {
@@ -22,6 +50,8 @@ a {
   flex: 1 1 20%; /* Fixed minimum width */
   max-width: 25%; /* Sidebar takes up a maximum of 20% */
   padding-right: 2em;
+  color: var(--pcolor);
+  background-color: var(--bcolor);
 }
 
 #sidebar > * {
@@ -43,11 +73,12 @@ a {
   flex-direction: row;
   margin: 0 auto;
   padding: 1.5em;
+  max-width: 100%;
 }
 
-body {
-  padding-top: 3.5em;
-}
+
+
+
 
 /* find header */
 #header {
@@ -55,18 +86,21 @@ body {
   justify-content: space-between;
   background-color: var(--pcolor); /* Replace _palette(bg) */
   border-bottom: solid 2px var(--pcolor); /* Replace _palette(border) */
-  height: 3.5em;
+  height: 5em;
   left: 0;
-  line-height: 3.5em;
+  line-height: 5em;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 100; /* Replace _misc(z-index-base) */
 }
 
+
+
 #header a {
   color: inherit;
   text-decoration: none;
+  font-size: 10em;
 }
 
 #header ul {
@@ -89,22 +123,23 @@ body {
 }
 
 #header h1 a {
-  font-size: .7em;
-  color: var(--bcolor); /* Replace _palette(fg-light) */
+  font-size: 1.2em;
+  color: var(--bcolor);
 }
 
 #header .links {
   flex: 1;
-  border-left: solid 2px var(--bcolor); /* Replace _palette(border) */
+  border-left: solid 3px var(--bcolor); /* Replace _palette(border) */
   height: inherit;
   line-height: inherit;
   margin-left: 1.5em;
   overflow: hidden;
   padding-left: 1.5em;
+  font-size: 1.7em;
 }
 
 #header .links ul li {
-  border-left: solid 2px var(--bcolor); /* Replace _palette(border) */
+  border-left: solid 3px var(--bcolor); /* Replace _palette(border) */
   line-height: 1;
   margin-left: 1em;
   padding-left: 1em;
@@ -147,7 +182,7 @@ body {
 #header .main ul li > a {
   text-decoration: none;
   border-bottom: 0;
-  color: #fff; /* Replace _palette(fg-light) */
+  color: var(--bcolor); /* Replace _palette(fg-light) */
   overflow: hidden;
   position: relative;
   text-indent: 4em;
@@ -157,6 +192,8 @@ body {
 #main {
   flex: 1; /* Let the main content fill the remaining space */
   padding: 2em; /* Optional padding for spacing */
+  background-color: var(--bcolor);
+  color: var(--pcolor);
   max-width: 100%;   
 }
 
@@ -177,15 +214,16 @@ body {
   align-items: center;
 }
 
-.blurb h2 {
+.blurb {
   margin-bottom: 8px; /* Adjust this value to control spacing */
-  line-height: 1.25;
+  line-height: 2;
 }
 
 article{
   padding: 1em;
   padding: 1em;
   outline: 2px solid var(--pcolor);
+
 }
 
 article h1 {

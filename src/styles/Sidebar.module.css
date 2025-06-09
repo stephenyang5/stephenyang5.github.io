@@ -1,6 +1,6 @@
 #sidebar{
     width: 250px;
-    background-color: #000000;
+    background-color: var(--bcolor);
     padding: 20px;
     overflow-y: auto;
     border-right: 1px solid #ddd;
@@ -11,4 +11,22 @@
     margin-top: 60px;
     display: flex;
     overflow: hidden;
+}
+
+.icons {
+  list-style: none;          /* remove bullet points */
+  display: flex;             /* make horizontal */
+  justify-content: center;   /* optional: center horizontally */
+  gap: 16px;                 /* spacing between icons */
+  padding: 0;
+  margin: 0;
+}
+.icons li a {
+  color: var(--bcolor);            /* match icon color */
+  font-size: 24px;           /* size of the icons */
+  transition: color 0.3s;
+}
+
+.icons li a:hover {
+  color: var(--pcolor);            /* optional hover color */
 }

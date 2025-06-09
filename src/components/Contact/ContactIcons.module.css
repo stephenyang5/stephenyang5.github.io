@@ -1,0 +1,18 @@
+.icons {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  padding: 0;
+  margin: 0;
+}
+
+.icons li a {
+  color: var(--pcolor);
+  font-size: 24px;
+  transition: color 0.3s;
+}
+
+.icons li a:hover {
+  color: color-mix(in srgb, var(--pcolor) 75%, var(--bcolor) 50%);
+}
