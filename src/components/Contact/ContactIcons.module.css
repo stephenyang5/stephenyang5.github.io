@@ -8,7 +8,7 @@
 }
 
 .icons li a {
-  color: var(--pcolor);
+  color: var(--bcolor);
   font-size: 24px;
   transition: color 0.3s;
 }

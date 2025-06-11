@@ -1,40 +1,34 @@
-import React from 'react';      
 import { Link } from 'react-router-dom';
-import '../styles/Sidebar.module.css';
-import myImage from '../assets/web-logo.png';
+import styles from '../styles/Sidebar.module.css'; // Import as a module
+// Fix: Use default import for SVGR
+import WebLogo from '../assets/web-logo-updated.svg?react';
 import ContactIcons from './Contact/ContactIcons.jsx';
 
 const Sidebar = ({ onThemeClick }) => (
-  <section id="sidebar">
-    <section id="intro">
-      <Link to="/">
-        <img
-          src={myImage}
-          alt="click to change theme"
-          className="logo"
-          onClick={onThemeClick}
-          style={{
-            cursor: "pointer",
-            borderRadius: '50%',
-            transition: 'filter 0.3s',
-          }}
-        />
-      </Link>
-    </section>
+  <section id="sidebar" className={styles.sidebar}> {/* Apply module class */}
+    <section id="logo_div" className={styles.intro}> {/* Apply module class */}
 
-    <section className="blurb">
+        <WebLogo
+          id="logo" // Keep ID for potential specific targeting if needed
+          alt="click to change theme"
+          className={styles.logo} // Apply module class for styling
+          onClick={onThemeClick}
+        />
+  
+    </section>
+    <section className={styles.blurb} id="nav_blurb"> {/* Apply module class */}
       <h2>About</h2>
       <p>
-        Hi! I'm Stephen. I'm currently a sophomore at Brown University studying computational biology!
-        I love genomics, programming, and sharing my experiences with others. 
+        Hi! I'm Stephen. I'm currently a junior at Brown University studying computational biology!
+        I love genomics, computational healthcare, and sharing my experiences with others.
       </p>
     </section>
 
-    <section id='footer'>
-      <p>This site was last updated on: 6/09/2025</p>
+    <section className={styles.footer}> {/* Apply module class for ID */}
+      <p>This site was last updated on: 6/10/2025</p>
     </section>
 
-    <section id="links">
+    <section id={styles.links}> {/* Apply module class for ID */}
       <p><ContactIcons /></p>
     </section>
   </section>
