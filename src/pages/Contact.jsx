@@ -14,7 +14,7 @@ const Contact = ({ onThemeClick }) => {
         <div style={{ margin: '2em 0' }}>
           <ContactIcons />
         </div>
-        <p>Or email me directly at <a href="mailto:stephencyang5@gmail.com">stephencyang5@gmail.com</a></p>
+        <p>Or email me directly at <a href="mailto:stephencyang5@gmail.com">stephencyang5@gmail.com</a>!</p>
       </article>
     </Main>
   );

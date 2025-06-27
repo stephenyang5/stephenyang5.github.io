@@ -55,10 +55,9 @@
 
 .projectImage {
   width: 100%;
-  max-width: 320px;
+  max-width: 240px;
   height: auto;
   border-radius: 6px;
   margin-bottom: 0.7em;
   display: block;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
 } 

@@ -12,6 +12,7 @@ import './styles/global.css';
 import { useEffect } from "react";
 import Contact from "./pages/Contact";
 import Projects from "./pages/Projects";
+import Stats from "./pages/Stats";
 
 
 const themes = ['theme-default', 'theme-lavender', 'theme-dark', 'theme-blue',
@@ -41,7 +42,8 @@ const App = () => {
           <Route path="/blog" element={<Blog onThemeClick={cycleTheme} />} />
           <Route path="/blog/:slug" element={<BlogPost onThemeClick={cycleTheme} />} />
           <Route path="/contact" element={<Contact onThemeClick={cycleTheme} />} />
-          {/* <Route path="/projects" element={<Projects onThemeClick={cycleTheme} />} /> */}
+          <Route path="/projects" element={<Projects onThemeClick={cycleTheme} />} /> 
+          <Route path="/stats" element={<Stats onThemeClick={cycleTheme} />} />
           <Route path="*" element={<Main fullPage={true}><NotFound /></Main>} />
 
         </Routes>

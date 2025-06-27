@@ -1,6 +1,8 @@
 import Main from '../components/Main';
 import projects from '../data/projects';
 import styles from '../styles/Projects.module.css';
+import HeartificialIntelligenceSvg from '../assets/heartificial_intelligence.svg?react';
+import WebLogoSvg from '../assets/web-logo-updated.svg?react';
 
 const Projects = ({ onThemeClick }) => (
   <Main
@@ -14,11 +16,23 @@ const Projects = ({ onThemeClick }) => (
         {projects.map((project, idx) => (
           <li key={idx} className={styles.projectItem}>
             {project.image && (
-              <img
-                src={project.image}
-                alt={project.title + ' screenshot'}
-                className={styles.projectImage}
-              />
+              project.image === "heartificial_intelligence.svg" ? (
+                <HeartificialIntelligenceSvg
+                  alt={project.title + ' screenshot'}
+                  className={styles.projectImage}
+                />
+              ) : project.image === "web-logo-updated.svg" ? (
+                <WebLogoSvg
+                  alt={project.title + ' screenshot'}
+                  className={styles.projectImage}
+                />
+              ) : (
+                <img
+                  src={project.image}
+                  alt={project.title + ' screenshot'}
+                  className={styles.projectImage}
+                />
+              )
             )}
             <h2 className={styles.projectTitle}>
               {project.title}
