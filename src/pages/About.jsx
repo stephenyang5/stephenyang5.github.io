@@ -14,7 +14,6 @@ const roles = [
   'hockey fan',
   'informatician',
   'problem solver',
-  'coffee enthusiast',
 ];
 
 const TypeWriter = () => {
