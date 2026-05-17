@@ -1,7 +1,7 @@
 const projects = [
 
   {
-    title: "NHL Goal Prediction with GRU",
+    title: "NHL Goal Prediction",
     date: "2025-06-27",
     description: "A deep learning system that predicts goals in NHL games using GRU neural networks and play-by-play sequence data. The project extracts data from the NHL API, creates balanced sequences of length 5, and trains a bidirectional GRU model with attention mechanism to identify patterns leading to goal-scoring opportunities.",
     link: "",
@@ -10,7 +10,7 @@ const projects = [
     //image: "hockey-puck.svg"
   },
   {
-    title: "Chagas Disease Classification from ECG",
+    title: "Chagas Disease Classification from ECG Data",
     date: "2025-05-16",
     description: "A deep learning model that classifies Chagas disease from 12-lead ECG data using convolutional neural networks. Built for the George B. Moody PhysioNet Challenge 2025, this project aims to enable widespread preliminary testing for Chagas disease through fast, automated ECG analysis.",
     link: "",

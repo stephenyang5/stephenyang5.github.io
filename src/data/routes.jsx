@@ -12,10 +12,7 @@ const routes = [
       label: 'Projects',
       path: '/projects',
     },
-    {
-      label: 'Stats',
-      path: '/stats',
-    },
+
     {
       label: 'Blog',
       path: '/blog',
@@ -27,4 +24,12 @@ const routes = [
   ];
   
   export default routes;
+
+
+  
+  
+  /*{
+      label: 'Stats',
+      path: '/stats',
+    }, */
   

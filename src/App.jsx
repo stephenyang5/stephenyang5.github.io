@@ -2,6 +2,7 @@ import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Landing from "./pages/Landing";
 import Landing_2 from "./pages/Landing_2";
+import Background from "./components/Background";
 
 import About from "./pages/About";
 import Blog from "./pages/Blog";
@@ -15,8 +16,7 @@ import Projects from "./pages/Projects";
 import Stats from "./pages/Stats";
 
 
-const themes = ['theme-default', 'theme-lavender', 'theme-dark', 'theme-blue',
-  'theme-purple'];
+const themes = ['theme-default', 'theme-lavender', 'theme-dark', 'theme-blue', 'theme-green'];
 
 const App = () => {
   const [themeIndex, setThemeIndex] = useState(0);
@@ -45,14 +45,14 @@ const App = () => {
   <path class="st0" fill="${bcolor}" d="M811.5,647.37c-6,5.33-11.67,11-17,17-8.02,7.18-17.35,12.01-28,14.5-10.02,2.21-20.02,4.54-30,7-25.8,3.28-51.47,2.28-77-3-21.59-8.6-39.43-22.1-53.5-40.5-14.35-22.39-24.02-46.72-29-73-.96-13.33-1.8-26.66-2.5-40,3.21-27.24,17.87-45.08,44-53.5,13.7-4.62,27.7-6.62,42-6,2.1-1.77,4.43-3.1,7-4,41.27-5.05,82.6-5.72,124-2,26.25,2.34,44.41,15.51,54.5,39.5,2.09,24.56.42,48.9-5,73-5.27,25.65-15.1,49.32-29.5,71Z"/>
 </svg>`;
       
-      // Create a blob URL for the dynamic SVG
+      // use blob URL for the dynamic SVG
       const blob = new Blob([svgContent], { type: 'image/svg+xml' });
       const url = URL.createObjectURL(blob);
       
       // Update favicon
       favicon.href = url;
       
-      // Clean up the previous blob URL after a short delay
+      // clean up the previous blob URL after a short delay
       setTimeout(() => {
         URL.revokeObjectURL(url);
       }, 1000);
@@ -78,6 +78,7 @@ const App = () => {
 
   return (
     <div className={`app-container`}>
+      <Background />
       <Router>
         <Routes>
           <Route path="/" element={<Landing_2 onThemeClick={cycleTheme}/>} />
@@ -88,7 +89,7 @@ const App = () => {
           <Route path="/blog/:slug" element={<BlogPost onThemeClick={cycleTheme} />} />
           <Route path="/contact" element={<Contact onThemeClick={cycleTheme} />} />
           <Route path="/projects" element={<Projects onThemeClick={cycleTheme} />} /> 
-          <Route path="/stats" element={<Stats onThemeClick={cycleTheme} />} />
+          {/*<Route path="/stats" element={<Stats onThemeClick={cycleTheme} />} /> */}
           <Route path="*" element={<Main fullPage={true}><NotFound /></Main>} />
 
         </Routes>

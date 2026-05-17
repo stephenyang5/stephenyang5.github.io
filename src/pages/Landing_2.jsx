@@ -1,26 +1,29 @@
 import React from 'react';
 import Main from '../components/Main';
 import { Link } from 'react-router-dom';
-const Landing = ({ onThemeClick }) => {
-    return (
-        <Main
-            title="Welcome to My Website"
-            description="This is a personal website to share aspects of my life, projects, and interests."
-            onThemeClick={onThemeClick}
-            >
-                <>
-                    <article>
-                        <h1>Welcome!</h1>
-                        <p> This is a website that I built to document and share my life! </p>
-                        <p>Conveniently, this site also serves as my first exercise in web development from scratch.</p>
-                        <p> Feel free to look around and learn more <Link to="/about"> about me</Link>.
-                        You can also take a look at  <Link to="/projects">projects</Link> I've been working on,
-                        some fun <Link to="/stats">stats</Link>, or <Link to="/contact">contact</Link> me to see my resume and learn about anything else!
-                        </p>
-                    </article>
-            </>
-        </Main>
-    );
-};
+import styles from '../styles/Landing.module.css';
+
+const Landing = ({ onThemeClick }) => (
+  <Main
+    title="Stephen Yang"
+    description="Personal website of Stephen Yang, computational biology student at Brown University"
+    onThemeClick={onThemeClick}
+  >
+    <section className={styles.hero}>
+      <h1 className={styles.name}>Stephen Yang</h1>
+      <p className={styles.tagline}>Computational Biology @ Brown University</p>
+      <p className={styles.bio}>
+        I'm interested in genomics, AI applications in healthcare, and building innovative solutions. 
+        This site is for sharing my projects, writing, and experiences.
+      </p>
+      <nav className={styles.ctas}>
+        <Link to="/about" className={styles.ctaLink}>About</Link>
+        <Link to="/projects" className={styles.ctaLink}>Projects</Link>
+        <Link to="/blog" className={styles.ctaLink}>Blog</Link>
+        <Link to="/contact" className={styles.ctaLink}>Contact</Link>
+      </nav>
+    </section>
+  </Main>
+);
 
 export default Landing;

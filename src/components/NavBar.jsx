@@ -1,19 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
 import routes from '../data/routes';
+import WebLogo from '../assets/web-logo-updated.svg?react';
 
-const Navigation = () => (
+const Navigation = ({ onThemeClick }) => (
   <header id="header">
-    <h1 className="index-link">
-      {routes
-        .filter((l) => l.index)
-        .map((l) => (
-          <Link key={l.label} to={l.path}>
-            {l.label}
-          </Link>
-        ))}
-    </h1>
+    <WebLogo
+      className="nav-logo"
+      onClick={onThemeClick}
+      title="Click to change theme"
+      aria-label="Toggle theme"
+    />
     <nav className="links">
       <ul>
         {routes

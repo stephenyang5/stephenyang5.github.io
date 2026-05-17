@@ -1,23 +1,40 @@
 import Main from '../components/Main';
-import ContactIcons from '../components/Contact/ContactIcons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import contactData from '../data/contact';
+import styles from '../styles/Contact.module.css';
 
-const Contact = ({ onThemeClick }) => {
-  return (
-    <Main 
-      title="Contact"
-      description="Get in touch with Stephen Yang"
-      onThemeClick={onThemeClick}
-    >
-      <article>
-        <h1>Contact</h1>
-        <p>I'd love to hear from you! Feel free to reach out through any of the platforms below:</p>
-        <div style={{ margin: '2em 0' }}>
-          <ContactIcons />
-        </div>
-        <p>Or email me directly at <a href="mailto:stephencyang5@gmail.com">stephencyang5@gmail.com</a>!</p>
-      </article>
-    </Main>
-  );
-};
+const Contact = ({ onThemeClick }) => (
+  <Main
+    title="Contact"
+    description="Get in touch with Stephen Yang"
+    onThemeClick={onThemeClick}
+  >
+    <section className={styles.hero}>
+      <h1 className={styles.heading}>Let's talk.</h1>
+      <p className={styles.sub}>
+        Whether it's research, a project, or something else - feel free to reach out!
+      </p>
 
-export default Contact; 
+      <ul className={styles.links}>
+        {contactData.map(({ label, link, icon }) => (
+          <li key={label}>
+            <a
+              href={link}
+              className={styles.link}
+              target={link.startsWith('mailto') ? undefined : '_blank'}
+              rel="noopener noreferrer"
+            >
+              <span className={styles.iconWrap}>
+                <FontAwesomeIcon icon={icon} />
+              </span>
+              <span className={styles.label}>{label}</span>
+              <span className={styles.arrow}>↗</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  </Main>
+);
+
+export default Contact;

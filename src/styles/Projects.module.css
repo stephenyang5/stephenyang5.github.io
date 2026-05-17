@@ -2,62 +2,85 @@
   list-style: none;
   padding: 0;
   margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
 }
 
 .projectItem {
-  border: 1.5px solid var(--bcolor);
-  border-radius: 8px;
-  margin: 1.5em 0;
-  padding: 1.2em;
-  background: var(--pcolor);
-  transition: box-shadow 0.2s;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  transition: box-shadow 0.2s, transform 0.2s;
+  overflow: hidden;
 }
 
 .projectItem:hover {
-  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
 }
 
 .projectTitle {
-  margin: 0 0 0.3em 0;
-  font-size: 1.3em;
-  color: var(--bcolor);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 0.4rem;
   display: flex;
-  align-items: center;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  color: var(--text);
 }
 
 .projectDesc {
-  margin: 0.5em 0 0.7em 0;
-  color: var(--bcolor);
-  font-size: 1em;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  margin: 0.4rem 0 0.8rem;
+  line-height: 1.6;
 }
 
 .projectTags {
-  margin-bottom: 0.5em;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.9rem;
 }
 
 .projectTag {
-  background: var(--bcolor);
-  color: var(--pcolor);
-  border-radius: 4px;
-  padding: 0.2em 0.6em;
-  font-size: 0.85em;
-  margin-right: 0.5em;
-  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.2rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text-muted);
+  background: var(--bg);
 }
 
 .projectLink {
-  color: var(--bcolor);
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--accent);
+  margin-right: 1rem;
+  text-decoration: none;
+}
+
+.projectLink:hover {
   text-decoration: underline;
-  margin-right: 1em;
-  font-weight: bold;
-  font-size: 0.98em;
 }
 
 .projectImage {
-  width: 100%;
-  max-width: 240px;
+  float: right;
+  max-width: 90px;
   height: auto;
-  border-radius: 6px;
-  margin-bottom: 0.7em;
-  display: block;
-} 
+  margin-left: 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: calc(var(--radius) - 2px);
+  opacity: 0.9;
+}
+
+@media (min-width: 600px) {
+  .projectList {
+    grid-template-columns: 1fr 1fr;
+  }
+}

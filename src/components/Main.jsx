@@ -1,27 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-
 import Navigation from './NavBar';
-import Sidebar from './Sidebar';
-import '../styles/Main.module.css';
+import ContactIcons from './Contact/ContactIcons';
 
-const Main = ({ children = null, fullPage = false, title = null, onThemeClick, description = "default page description" }) => (
+const Main = ({ children = null, title = null, onThemeClick, description = "Stephen Yang's personal website" }) => (
   <HelmetProvider>
     <Helmet
-      titleTemplate="%s | My Personal Website"
-      defaultTitle="My Personal Website"
+      titleTemplate="%s | Stephen Yang"
+      defaultTitle="Stephen Yang"
       defer={false}
     >
       {title && <title>{title}</title>}
       <meta name="description" content={description} />
     </Helmet>
     <div id="wrapper">
-      <Navigation />
-      {fullPage ? null : <Sidebar onThemeClick={onThemeClick} />}
+      <Navigation onThemeClick={onThemeClick} />
       <div id="main">
         {children}
       </div>
+      <footer id="site-footer">
+        <ContactIcons />
+        <p>Last updated 5/16/2026</p>
+      </footer>
     </div>
   </HelmetProvider>
 );
@@ -31,7 +32,6 @@ Main.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]),
-  fullPage: PropTypes.bool,
   title: PropTypes.string,
   description: PropTypes.string,
   onThemeClick: PropTypes.func,

@@ -3,8 +3,8 @@ export const birthday = "2005-04-04T00:00:00"; // ISO format
 export const countries = [
   "United States",
   "Canada",
-  "France",
-  "Taiwan",
+  "China",
+  "Jordan",
   // ...add more
 ];
 

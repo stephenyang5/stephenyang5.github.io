@@ -1,18 +1,20 @@
 .icons {
   list-style: none;
   display: flex;
-  justify-content: center;
-  gap: 16px;
-  padding: 0;
+  align-items: center;
+  gap: 1.25rem;
   margin: 0;
+  padding: 0;
 }
 
 .icons li a {
-  color: var(--bcolor);
-  font-size: 24px;
-  transition: color 0.3s;
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  transition: color 0.2s;
+  text-decoration: none;
 }
 
 .icons li a:hover {
-  color: color-mix(in srgb, var(--pcolor) 75%, var(--bcolor) 50%);
+  color: var(--accent);
+  text-decoration: none;
 }

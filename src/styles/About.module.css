@@ -1,0 +1,124 @@
+.about {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  max-width: 640px;
+  animation: fadeIn 0.5s ease both;
+}
+
+/* ── Intro ─────────────────────────────────────────── */
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.greeting {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin: 0;
+  color: var(--text);
+}
+
+.bio {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--text);
+  margin: 0;
+}
+
+/* ── Sections ──────────────────────────────────────── */
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sectionTitle {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sectionTitle::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.sectionIcon {
+  font-size: 0.75rem;
+}
+
+/* ── Music list ────────────────────────────────────── */
+
+.musicList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.musicItem a {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  text-decoration: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius);
+  transition: background-color 0.15s;
+}
+
+.musicItem a:hover {
+  background-color: var(--surface);
+  text-decoration: none;
+}
+
+.albumTitle {
+  font-weight: 500;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.albumArtist {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* ── Interest tags ─────────────────────────────────── */
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 0.3rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text-muted);
+  background: var(--surface);
+}
+
+/* ── Animation ─────────────────────────────────────── */
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
