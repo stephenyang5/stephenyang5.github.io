@@ -60,6 +60,11 @@ const Projects = ({ onThemeClick }) => (
                 GitHub
               </a>
             )}
+            {project.paper && (
+              <a href={project.paper} target="_blank" rel="noopener noreferrer" className={styles.projectLink}>
+                Paper
+              </a>
+            )}
           </li>
         ))}
       </ul>

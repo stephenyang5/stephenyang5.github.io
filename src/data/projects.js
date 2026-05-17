@@ -1,5 +1,20 @@
 const projects = [
-
+  {
+    title: "two-and-a-billyan",
+    date: "2026-05-04",
+    description: "Multimodal approach for predicting skin lesion types using clinical images and patient metadata. Developed an intermediate fusion model that placed second in spring 2026 CSCI1851 Kaggle competition at Brown University. Model explainability explored through attribution methods.",
+    github:"https://github.com/csci1851/final-project-two-and-a-billyan",
+    paper: "something",
+    tags: ["Python", "Multimodal Learning", "Fine-tuning", "Clinical AI", "Interpretability", "PyTorch"],
+  },
+  {
+    title: "GT-Velo",
+    date: "2025-12-13",
+    description: "A GNN framework for cell type classification framed as a temporal node prediction problem. Developed cell similarity graphs from single-cell RNA-seq data and corresponding RNA velocity estimates to encode developmental signal. Final project for CSCI2952G at Brown University.",
+    github:"https://github.com/stephenyang5/team-number-one",
+    tags: ["Python", "Graph Neural Networks", "Single-cell RNA-seq", "RNA Velocity", "PyTorch Geometric", "Bioinformatics"],
+    paper: "something"
+  },
   {
     title: "NHL Goal Prediction",
     date: "2025-06-27",
