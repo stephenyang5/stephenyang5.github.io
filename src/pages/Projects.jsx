@@ -65,6 +65,11 @@ const Projects = ({ onThemeClick }) => (
                 Paper
               </a>
             )}
+            {project.poster && (
+              <a href={project.poster} target="_blank" rel="noopener noreferrer" className={styles.projectLink}>
+                Poster
+              </a>
+            )}
           </li>
         ))}
       </ul>

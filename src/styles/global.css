@@ -118,21 +118,50 @@ a:hover {
   border-bottom: 1px solid var(--border);
 }
 
+.nav-home {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
 .nav-logo {
   height: 2.25rem;
   width: auto;
-  cursor: pointer;
-  transition: opacity 0.2s;
   display: block;
+  transition: opacity 0.2s;
 }
 
-.nav-logo:hover {
+.nav-home:hover .nav-logo {
   opacity: 0.7;
+}
+
+.theme-btn {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+  margin-left: 1.5rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.theme-btn:hover {
+  transform: scale(1.4);
+  box-shadow: 0 0 0 3px var(--border);
+}
+
+.theme-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--border);
 }
 
 #header .links {
   display: flex;
   align-items: center;
+  margin-left: auto;
 }
 
 #header .links ul {

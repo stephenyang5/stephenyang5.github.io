@@ -23,6 +23,31 @@
   color: var(--text);
 }
 
+.roleLine {
+  font-size: clamp(1.34rem, 3.7vw, 2.14rem);
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+  min-height: 1.4em;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.typed {
+  color: var(--text);
+}
+
+.cursor {
+  color: var(--text);
+  animation: blink 0.9s step-end infinite;
+  margin-left: 1px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
 .bio {
   font-size: 1rem;
   line-height: 1.75;

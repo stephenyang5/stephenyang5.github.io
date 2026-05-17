@@ -5,12 +5,9 @@ import WebLogo from '../assets/web-logo-updated.svg?react';
 
 const Navigation = ({ onThemeClick }) => (
   <header id="header">
-    <WebLogo
-      className="nav-logo"
-      onClick={onThemeClick}
-      title="Click to change theme"
-      aria-label="Toggle theme"
-    />
+    <Link to="/" className="nav-home" aria-label="Home">
+      <WebLogo className="nav-logo" />
+    </Link>
     <nav className="links">
       <ul>
         {routes
@@ -22,6 +19,12 @@ const Navigation = ({ onThemeClick }) => (
           ))}
       </ul>
     </nav>
+    <button
+      className="theme-btn"
+      onClick={onThemeClick}
+      title="Change theme"
+      aria-label="Change theme"
+    />
   </header>
 );
 

@@ -10,7 +10,7 @@ const Contact = ({ onThemeClick }) => (
     onThemeClick={onThemeClick}
   >
     <section className={styles.hero}>
-      <h1 className={styles.heading}>Let's talk.</h1>
+      <h1 className={styles.heading}>Let's talk!</h1>
       <p className={styles.sub}>
         Whether it's research, a project, or something else - feel free to reach out!
       </p>

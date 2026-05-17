@@ -1,0 +1,88 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+/* month row */
+.months {
+  display: grid;
+  margin-left: 28px; /* align with grid, past day labels */
+  gap: 3px;
+}
+
+.monthLabel {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* body = day labels + grid side by side */
+.body {
+  display: flex;
+  gap: 4px;
+  align-items: flex-start;
+}
+
+.dayLabels {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding-top: 1px;
+}
+
+.dayLabel {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  line-height: 13px;
+  height: 13px;
+  white-space: nowrap;
+}
+
+/* grid of week columns */
+.grid {
+  display: flex;
+  gap: 3px;
+}
+
+.week {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.cell {
+  width: 13px;
+  height: 13px;
+  border-radius: 3px;
+  transition: background-color 0.3s;
+}
+
+.cell:hover {
+  outline: 1.5px solid var(--accent);
+  outline-offset: 1px;
+}
+
+/* legend */
+.legend {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  margin-left: auto;
+  margin-top: 4px;
+}
+
+.legendLabel {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin: 0 2px;
+}
+
+.legendCell {
+  width: 13px;
+  height: 13px;
+  border-radius: 3px;
+  transition: background-color 0.3s;
+}

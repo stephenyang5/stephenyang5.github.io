@@ -4,7 +4,7 @@ const projects = [
     date: "2026-05-04",
     description: "Multimodal approach for predicting skin lesion types using clinical images and patient metadata. Developed an intermediate fusion model that placed second in spring 2026 CSCI1851 Kaggle competition at Brown University. Model explainability explored through attribution methods.",
     github:"https://github.com/csci1851/final-project-two-and-a-billyan",
-    paper: "something",
+    paper: "/two-and-a-billyan.pdf",
     tags: ["Python", "Multimodal Learning", "Fine-tuning", "Clinical AI", "Interpretability", "PyTorch"],
   },
   {
@@ -12,8 +12,8 @@ const projects = [
     date: "2025-12-13",
     description: "A GNN framework for cell type classification framed as a temporal node prediction problem. Developed cell similarity graphs from single-cell RNA-seq data and corresponding RNA velocity estimates to encode developmental signal. Final project for CSCI2952G at Brown University.",
     github:"https://github.com/stephenyang5/team-number-one",
+    paper: "/GTVelo.pdf",
     tags: ["Python", "Graph Neural Networks", "Single-cell RNA-seq", "RNA Velocity", "PyTorch Geometric", "Bioinformatics"],
-    paper: "something"
   },
   {
     title: "NHL Goal Prediction",
@@ -30,12 +30,13 @@ const projects = [
     link: "",
     github: "https://github.com/mspancho/heartificial-intelligence-2025",
     tags: ["Python", "Deep Learning", "CNN", "ECG Analysis", "Medical AI", "TensorFlow", "PhysioNet Challenge"],
+    poster: "/heartificial_intelligence.pdf",
     image: "heartificial_intelligence.svg"
   },
   {
     title: "Personal Website",
     date: "2024-06-12",
-    description: "A personal website built with React and Vite, featuring a blog, project showcase, and more.",
+    description: "A personal website!",
     link: "https://stephenyang5.github.io/",
     github: "https://github.com/stephenyang5/stephenyang5.github.io",
     tags: ["React", "Vite", "Frontend"],

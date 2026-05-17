@@ -1,8 +1,61 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMusic, faLeaf, faFlask } from '@fortawesome/free-solid-svg-icons';
+import { faMusic, faFaceGrinStars, faFire } from '@fortawesome/free-solid-svg-icons';
 import styles from '../styles/About.module.css';
+import ActivityGrid from '../components/ActivityGrid';
+
+const roles = [
+  'student researcher',
+  'teaching assistant',
+  'volunteer',
+  'musician',
+  'developer',
+  'hockey fan',
+  'informatician',
+  'problem solver',
+  'coffee enthusiast',
+];
+
+const TypeWriter = () => {
+  const [displayText, setDisplayText] = useState('');
+  const [phase, setPhase] = useState('typing');
+  const [roleIndex, setRoleIndex] = useState(0);
+
+  useEffect(() => {
+    const current = roles[roleIndex];
+
+    if (phase === 'typing') {
+      if (displayText.length < current.length) {
+        const t = setTimeout(() => setDisplayText(current.slice(0, displayText.length + 1)), 80);
+        return () => clearTimeout(t);
+      } else {
+        const t = setTimeout(() => setPhase('pausing'), 1400);
+        return () => clearTimeout(t);
+      }
+    }
+
+    if (phase === 'pausing') {
+      const t = setTimeout(() => setPhase('deleting'), 0);
+      return () => clearTimeout(t);
+    }
+
+    if (phase === 'deleting') {
+      if (displayText.length > 0) {
+        const t = setTimeout(() => setDisplayText(displayText.slice(0, -1)), 40);
+        return () => clearTimeout(t);
+      } else {
+        const t = setTimeout(() => {
+          setRoleIndex((i) => (i + 1) % roles.length);
+          setPhase('typing');
+        }, 350);
+        return () => clearTimeout(t);
+      }
+    }
+  }, [displayText, phase, roleIndex]);
+
+  return <span className={styles.typed}>{displayText}</span>;
+};
 
 const listeningTo = [
   { title: 'Immanuel Wilkins Quartet: Live at the Village Vanguard Vol. 1', artist: 'Immanuel Wilkins', url: 'https://open.spotify.com/album/3hF2wgxqoKyx9MI3ZOkB91?si=IWlqh_4NRHGqnE10CPcpfg' },
@@ -12,31 +65,21 @@ const listeningTo = [
 ];
 
 const interests = [
-  'Genomics', 'Computational Healthcare', 'AI Interpretability',
-  'Neuroscience', 'Ice Hockey', 'Sports Analytics', 'Jazz', 'Cooking', 'Mental Health Advocacy',
+  'Computational Healthcare', 'AI Interpretability', 'Genomics', 
+  'Neuroscience', 'Precision Medicine', 'Mental Health Advocacy', 'Ice Hockey', 'Jazz', 'Cooking', 
 ];
 
 const About = () => (
   <div className={styles.about}>
 
     <section className={styles.intro}>
-      <p className={styles.greeting}>Hi, I'm Stephen.</p>
-      <p className={styles.bio}>
-        I'm a junior at Brown University studying computational biology and piecing
-        together the{' '}
-        <a href="https://www.brown.edu/academics/undergraduate/open-curriculum" target="_blank" rel="noopener noreferrer">
-          Open Curriculum
-        </a>
-        . I'm particularly excited about how computational approaches can drive
-        progress in healthcare and biotechnology.
+      <p className={styles.greeting}>Hi, I'm Stephen!</p>
+      <p className={styles.roleLine}>
+        I'm a <TypeWriter /><span className={styles.cursor}>|</span>
       </p>
       <p className={styles.bio}>
-        Outside of class I've been volunteering, doing research, and building side projects. In my free time I enjoy getting out
-        into nature, playing ice hockey, and making music with friends!
-      </p>
-      <p className={styles.bio}>
-        Always up for a good conversation - especially about, AI
-        interpretability, med tech, or whatever odd problem you're working on.{' '}
+        Always up for a good conversation - especially about AI
+        interpretability, clinical decision support systems, or whatever odd problem you're working on.{' '}
         <Link to="/contact">Say hi :)</Link>
       </p>
     </section>
@@ -62,7 +105,7 @@ const About = () => (
 
     <section className={styles.section}>
       <h2 className={styles.sectionTitle}>
-        <FontAwesomeIcon icon={faFlask} className={styles.sectionIcon} />
+        <FontAwesomeIcon icon={faFaceGrinStars} className={styles.sectionIcon} />
         Interests
       </h2>
       <div className={styles.tags}>
@@ -70,6 +113,14 @@ const About = () => (
           <span key={tag} className={styles.tag}>{tag}</span>
         ))}
       </div>
+    </section>
+
+    <section className={styles.section}>
+      <h2 className={styles.sectionTitle}>
+        <FontAwesomeIcon icon={faFire} className={styles.sectionIcon} />
+        Activity
+      </h2>
+      <ActivityGrid />
     </section>
 
   </div>
