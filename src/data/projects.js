@@ -22,7 +22,6 @@ const projects = [
     link: "",
     github: "https://github.com/stephenyang5/hockeyai",
     tags: ["Python", "Deep Learning", "GRU", "NHL API", "Sports Analytics", "PyTorch", "Numpy","Sequence Modeling"],
-    //image: "hockey-puck.svg"
   },
   {
     title: "Chagas Disease Classification from ECG Data",
