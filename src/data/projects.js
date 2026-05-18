@@ -16,6 +16,13 @@ const projects = [
     tags: ["Python", "Graph Neural Networks", "Single-cell RNA-seq", "RNA Velocity", "PyTorch Geometric", "Bioinformatics"],
   },
   {
+    title: "Apple Fritter",
+    date: "2025-10-15",
+    description: "A Slack bot that automatically pairs people in a slack channel for casual 1:1 social introductions! It runs on Vercel as a serverless Python app (FastAPI + Slack Bolt) and uses a private Slack channel as its only persistence layer.",
+    github: "https://github.com/stephenyang5/apple-fritter.git",
+    tags: ["Python", "Slack API", "FastAPI", "Serverless", "Vercel"],
+  },
+  {
     title: "NHL Goal Prediction",
     date: "2025-06-27",
     description: "A deep learning system that predicts goals in NHL games using GRU neural networks and play-by-play sequence data. The project extracts data from the NHL API, creates balanced sequences of length 5, and trains a bidirectional GRU model with attention mechanism to identify patterns leading to goal-scoring opportunities.",
