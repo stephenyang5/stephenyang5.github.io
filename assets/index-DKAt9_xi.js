@@ -800,6 +800,12 @@ Course gives a formal introduction to learning theory, covering different repres
 First iteration of class that Ritambhara developed. Course content itself mirrored a lot of machine learning while touching on biological applications. Really enjoyed the more openended projects that felt like research assignments and coming together to develop a final project. 
 </details>
 
+<details>
+<summary>PHYS0030: Basic Physics A (2/5)</summary>
+Course is an algebra based introduction to mechanics. The lack of calculus foundation makes the course very unintuitive and I often found myself refreshing my knowledge from high school physics C by looking up the derivations since that helped connect concepts that otherwise required memorization of formulas. The only reason I took this course is because I wanted to take physics on the off semesters for my pre-med timeline. I would recommend new students or students interested in physics take a calculus based version - I would even say that the calculus based version of this course are easier based on friend experiences. 
+</details>
+
+
 `,U2=`---
 title: Hello World
 date: 05-20-2025
