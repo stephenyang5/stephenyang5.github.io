@@ -807,7 +807,7 @@ Course is an algebra based introduction to mechanics. The lack of calculus found
 
 
 `,H2=`---
-title: Looking at my Fitbit data
+title: Trends in my Fitbit data
 date: 10-06-2026
 description: Looking through a few months of Fitbit data.
 ---
@@ -1086,7 +1086,7 @@ description: hello world :)
 Welcome to my first blog post!
 
 Hopefully I will stay relatively consistent in updating/maintaing this page!`,j2=`---
-title: Postmortem on a Summer Studying for the MCAT
+title: Reflections on a summer studying for the MCAT
 date: 08-29-2026
 description: Reflecting on a stressful time and thinking about how to move forwards! 
 ---
