@@ -809,7 +809,7 @@ Course is an algebra based introduction to mechanics. The lack of calculus found
 `,H2=`---
 title: Trends in my Fitbit data
 date: 10-06-2026
-description: Looking through a few months of Fitbit data.
+description: Looking through a few months of Fitbit data to understand myself!
 ---
 
 For the past few months, I have been giving each day a rating from 1-10. I started doing this without much of an end goal, but after accumulating 148 ratings since May I realized I had enough data to compare them against the much larger amount of data my Fitbit passively collects. I was mostly curious whether any of the things that are generally supposed to make me feel better - sleeping more, exercising, having better sleep quality - actually showed up in how I rated my days.
@@ -1088,7 +1088,7 @@ Welcome to my first blog post!
 Hopefully I will stay relatively consistent in updating/maintaing this page!`,j2=`---
 title: Reflections on a summer studying for the MCAT
 date: 08-29-2026
-description: Reflecting on a stressful time and thinking about how to move forwards! 
+description: Thinking about a stressful time and how to move forwards! 
 ---
 I think that one of the strange things about studying for the MCAT is that before I started, there felt like an objective optimal way to do it.
 
