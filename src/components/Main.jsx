@@ -21,7 +21,7 @@ const Main = ({ children = null, title = null, onThemeClick, description = "Step
       </div>
       <footer id="site-footer">
         <ContactIcons />
-        <p>Last updated 5/16/2026</p>
+        <p>Last updated 10/5/2026</p>
       </footer>
     </div>
   </HelmetProvider>
