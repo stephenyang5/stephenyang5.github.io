@@ -1,115 +1,53 @@
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import activity from '../data/activity';
 import styles from '../styles/ActivityGrid.module.css';
 
-const WEEKS = 33;
-
-const cellColor = (value) => {
-  if (!value) return 'var(--surface)';
-  // blend accent into surface: 15% at value=1, 100% at value=10
-  const pct = Math.round(((value - 1) / 9) * 85) + 15;
-  return `color-mix(in srgb, var(--accent) ${pct}%, var(--surface))`;
-};
-
-const buildGrid = () => {
-  const lookup = {};
-  activity.forEach(({ date, value }) => { lookup[date] = value; });
-
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-
-  // align start to the Sunday of the week 26 weeks ago
-  const startSunday = new Date(today);
-  startSunday.setDate(today.getDate() - today.getDay() - (WEEKS - 1) * 7);
-
-  const weeks = [];
-  const cursor = new Date(startSunday);
-
-  while (cursor <= today) {
-    const week = [];
-    for (let d = 0; d < 7; d++) {
-      if (cursor > today) break;
-      const iso = cursor.toISOString().split('T')[0];
-      week.push({ date: iso, value: lookup[iso] || 0 });
-      cursor.setDate(cursor.getDate() + 1);
-    }
-    weeks.push(week);
-  }
-
-  return weeks;
-};
-
-// derive month labels from the grid weeks
-const buildMonthLabels = (weeks) => {
-  const labels = [];
-  let lastMonth = null;
-  weeks.forEach((week, i) => {
-    const month = new Date(week[0].date).toLocaleString('default', { month: 'short' });
-    if (month !== lastMonth) {
-      labels.push({ label: month, col: i });
-      lastMonth = month;
-    }
-  });
-  return labels;
-};
-
-const DAY_LABELS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+const entries = new Map(activity.filter(({ value }) => value >= 1 && value <= 10).map(({ date, value }) => [date, value]));
+const months = [...new Set([...entries.keys()].sort().map(date => date.slice(0, 7)))];
+const monthLabel = month => new Date(`${month}-01T12:00:00`).toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
 
 const ActivityGrid = () => {
-  const weeks = buildGrid();
-  const monthLabels = buildMonthLabels(weeks);
-
+  const [monthIndex, setMonthIndex] = useState(Math.max(0, months.length - 1));
+  const [selected, setSelected] = useState(null);
+  if (!months.length) return <p>No daily check-ins yet.</p>;
+  const month = months[monthIndex];
+  const [year, monthNumber] = month.split('-').map(Number);
+  const dayCount = new Date(year, monthNumber, 0).getDate();
+  const days = Array.from({ length: dayCount }, (_, i) => {
+    const date = `${month}-${String(i + 1).padStart(2, '0')}`;
+    return { date, day: i + 1, value: entries.get(date) };
+  });
+  const changeMonth = offset => { setMonthIndex(index => index + offset); setSelected(null); };
   return (
-    <div className={styles.wrapper}>
-      {/* month labels */}
-      <div className={styles.months} style={{ gridTemplateColumns: `repeat(${weeks.length}, 13px)` }}>
-        {monthLabels.map(({ label, col }) => (
-          <span key={`${label}-${col}`} className={styles.monthLabel} style={{ gridColumn: col + 1 }}>
-            {label}
-          </span>
-        ))}
-      </div>
-
-      <div className={styles.body}>
-        {/* day-of-week labels */}
-        <div className={styles.dayLabels}>
-          {DAY_LABELS.map((d, i) => (
-            <span key={d} className={styles.dayLabel} style={{ visibility: i % 2 === 0 ? 'hidden' : 'visible' }}>
-              {d}
-            </span>
-          ))}
-        </div>
-
-        {/* grid */}
-        <div className={styles.grid}>
-          {weeks.map((week, wi) => (
-            <div key={wi} className={styles.week}>
-              {week.map((day) => (
-                <div
-                  key={day.date}
-                  className={styles.cell}
-                  style={{ backgroundColor: cellColor(day.value) }}
-                  title={day.value ? `${day.date} — ${day.value}/10` : day.date}
-                />
-              ))}
-            </div>
-          ))}
+    <div className={styles.journal}>
+      <div className={styles.scroll} role="region" aria-label="Daily ratings chart, scroll horizontally on small screens" tabIndex={0}>
+        <div className={styles.plot}>
+          <div className={styles.days} style={{ gridTemplateColumns: `repeat(${dayCount}, 1fr)` }}>
+            {days.map(({ date, value }) => (
+              <div key={date} className={styles.day}>
+                <div className={styles.track}>
+                  {value !== undefined ? <button
+                    className={styles.mark}
+                    style={{ bottom: `${((value - 1) / 9) * 100}%` }}
+                    aria-label={`${date}:${value} out of 10`}
+                    aria-pressed={selected?.date === date}
+                    onClick={() => setSelected({ date, value })}
+                    title={`${date}:${value}/10`}
+                  >.</button> : null}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-
-      {/* legend */}
-      <div className={styles.legend}>
-        <span className={styles.legendLabel}>0</span>
-        {[0, 2, 4, 6, 8, 10].map((v) => (
-          <div
-            key={v}
-            className={styles.legendCell}
-            style={{ backgroundColor: cellColor(v) }}
-          />
-        ))}
-        <span className={styles.legendLabel}>10</span>
+      <div className={styles.controls}>
+        <button onClick={() => changeMonth(-1)} disabled={monthIndex === 0} aria-label="Previous month">{"<-"}</button>
+        <span aria-live="polite">{monthLabel(month)}</span>
+        <button onClick={() => changeMonth(1)} disabled={monthIndex === months.length - 1} aria-label="Next month">{"->"}</button>
       </div>
+      <Link className={styles.more} to="/blog/fitbit-sleep">What I’m learning from these check-ins</Link>
     </div>
   );
 };
-
 export default ActivityGrid;

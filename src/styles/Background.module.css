@@ -1,6 +1,4 @@
-.bg {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-}
+.bg { position: fixed; top: 130px; left: max(12px, calc(50% - 620px)); white-space: pre; pointer-events: none; z-index: 0; color: var(--text-muted); opacity: .35; font: 12px/3 'Courier New', monospace; animation: glimmer 8s ease-in-out infinite alternate; }
+@keyframes glimmer { to { opacity: .12; } }
+@media(max-width: 1150px) { .bg { display: none; } }
+@media(prefers-reduced-motion: reduce) { .bg { animation: none; } }

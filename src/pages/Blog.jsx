@@ -34,6 +34,14 @@ const parseFrontmatter = (content) => {
   };
 };
 
+// Dates in frontmatter are MM-DD-YYYY. Missing or unparseable dates sort last.
+const postDateValue = (date) => {
+  const match = typeof date === 'string' && date.match(/^(\d{2})-(\d{2})-(\d{4})$/);
+  if (!match) return 0;
+  const [, month, day, year] = match;
+  return new Date(Number(year), Number(month) - 1, Number(day)).getTime();
+};
+
 const Blog = ({ onThemeClick }) => {
   const [blogPosts, setBlogPosts] = useState([]);
   const [error, setError] = useState(null);
@@ -55,6 +63,8 @@ const Blog = ({ onThemeClick }) => {
           return null;
         }
       }).filter(Boolean);
+
+      posts.sort((a, b) => postDateValue(b.date) - postDateValue(a.date));
 
       console.log('Processed posts:', posts);
       setBlogPosts(posts);

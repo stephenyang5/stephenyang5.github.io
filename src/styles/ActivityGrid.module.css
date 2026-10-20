@@ -1,88 +1,15 @@
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  overflow-x: auto;
-  padding-bottom: 4px;
-}
-
-/* month row */
-.months {
-  display: grid;
-  margin-left: 28px; /* align with grid, past day labels */
-  gap: 3px;
-}
-
-.monthLabel {
-  font-size: 0.7rem;
-  color: var(--text-muted);
-  white-space: nowrap;
-}
-
-/* body = day labels + grid side by side */
-.body {
-  display: flex;
-  gap: 4px;
-  align-items: flex-start;
-}
-
-.dayLabels {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  padding-top: 1px;
-}
-
-.dayLabel {
-  font-size: 0.65rem;
-  color: var(--text-muted);
-  line-height: 13px;
-  height: 13px;
-  white-space: nowrap;
-}
-
-/* grid of week columns */
-.grid {
-  display: flex;
-  gap: 3px;
-}
-
-.week {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-}
-
-.cell {
-  width: 13px;
-  height: 13px;
-  border-radius: 3px;
-  transition: background-color 0.3s;
-}
-
-.cell:hover {
-  outline: 1.5px solid var(--accent);
-  outline-offset: 1px;
-}
-
-/* legend */
-.legend {
-  display: flex;
-  align-items: center;
-  gap: 3px;
-  margin-left: auto;
-  margin-top: 4px;
-}
-
-.legendLabel {
-  font-size: 0.7rem;
-  color: var(--text-muted);
-  margin: 0 2px;
-}
-
-.legendCell {
-  width: 13px;
-  height: 13px;
-  border-radius: 3px;
-  transition: background-color 0.3s;
-}
+.journal { margin-top: -12px; font-family: 'Courier New', Courier, monospace; }
+.description { font-size: 12px; line-height: 1.8; max-width: 620px; margin: 0 0 20px; }
+.controls { display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 12px; padding: 0; border-top: none; }
+.controls button { border: 0; padding: 8px; background: transparent; color: var(--accent); font: inherit; cursor: pointer; }
+.controls button:disabled { opacity: .3; cursor: default; }
+.scroll { overflow-x: auto; padding: 8px 4px 12px; scrollbar-width: thin; }
+.plot { display: flex; gap: 12px; min-width: 550px; padding-top: 12px; }
+.days { display: grid; flex: 1;  }
+.day { min-width: 0; }
+.track { height: 126px; position: relative;  }
+.mark { position: absolute; left: 50%; transform: translate(-50%, 50%); width: 100%; min-height: 24px; padding: 0; border: 0; background: transparent; color: var(--accent); font: bold 20px/24px 'Courier New', monospace; cursor: pointer; z-index: 1; }
+.mark:hover, .mark[aria-pressed='true'] { background: var(--text); color: var(--bg); }
+.readout { margin: 8px 0; font-size: 12px; min-height: 22px; }
+.key { font-size: 10px; line-height: 1.8; color: var(--text-muted); margin: 0 0 14px; }
+.more { display: inline-block; margin-top: 12px; font-size: 12px; text-decoration: underline; }

@@ -81,7 +81,7 @@ const App = () => {
       <Background />
       <Router>
         <Routes>
-          <Route path="/" element={<Main title="Stephen Yang" description="Stephen Yang — Computational Biology at Brown University" onThemeClick={cycleTheme}><About /></Main>} />
+          <Route path="/" element={<Main title="Stephen Yang" description="Stephen Yang — Computational Biology at Brown University" onThemeClick={cycleTheme} showSkyline><About /></Main>} />
           <Route path="/about" element={<Main title="About" onThemeClick={cycleTheme}><About /></Main>} />
           <Route path="/blog" element={<Blog onThemeClick={cycleTheme} />} />
           <Route path="/blog/:slug" element={<BlogPost onThemeClick={cycleTheme} />} />

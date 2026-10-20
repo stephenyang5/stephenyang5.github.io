@@ -6,7 +6,7 @@ import WebLogo from '../assets/web-logo-updated.svg?react';
 const Navigation = ({ onThemeClick }) => (
   <header id="header">
     <Link to="/" className="nav-home" aria-label="Home">
-      <WebLogo className="nav-logo" />
+      <WebLogo className="nav-logo" /><span className="nav-name">Stephen Yang</span>
     </Link>
     <nav className="links">
       <ul>
@@ -24,7 +24,7 @@ const Navigation = ({ onThemeClick }) => (
       onClick={onThemeClick}
       title="Change theme"
       aria-label="Change theme"
-    />
+    >◐</button>
   </header>
 );
 

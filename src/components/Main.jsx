@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Navigation from './NavBar';
 import ContactIcons from './Contact/ContactIcons';
+import Skyline from './Skyline';
 
-const Main = ({ children = null, title = null, onThemeClick, description = "Stephen Yang's personal website" }) => (
+const Main = ({ children = null, title = null, onThemeClick, description = "Stephen Yang's personal website", showSkyline = false }) => (
   <HelmetProvider>
     <Helmet
       titleTemplate="%s | Stephen Yang"
@@ -20,8 +21,9 @@ const Main = ({ children = null, title = null, onThemeClick, description = "Step
         {children}
       </div>
       <footer id="site-footer">
+        <Skyline />
         <ContactIcons />
-        <p>Last updated 10/5/2026</p>
+        <p>Last updated 10/20/2026</p>
       </footer>
     </div>
   </HelmetProvider>
@@ -35,6 +37,7 @@ Main.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   onThemeClick: PropTypes.func,
+  showSkyline: PropTypes.bool,
 };
 
 export default Main;

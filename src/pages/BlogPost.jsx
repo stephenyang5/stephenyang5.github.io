@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
 import ReactMarkdown from 'react-markdown';
 import Main from '../components/Main';
 
@@ -29,6 +30,11 @@ const parseFrontmatter = (content) => {
   };
 };
 
+const postFiles = import.meta.glob('../data/posts/*.md', {
+  as: 'raw',
+  eager: true
+});
+
 const BlogPost = ({ onThemeClick }) => {
   const { slug } = useParams();
   const navigate = useNavigate();
@@ -37,21 +43,19 @@ const BlogPost = ({ onThemeClick }) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const loadPost = async () => {
-      try {
-        const module = await import(`../data/posts/${slug}.md`);
-        const response = await fetch(module.default);
-        const text = await response.text();
-        const { data, content } = parseFrontmatter(text);
-        setMetadata(data);
-        setContent(content);
-      } catch (error) {
-        console.error('Error loading blog post:', error);
-        setError('Post not found');
-      }
-    };
+    const path = Object.keys(postFiles).find((filePath) =>
+      filePath.endsWith(`/${slug}.md`)
+    );
 
-    loadPost();
+    if (!path) {
+      setError('Post not found');
+      return;
+    }
+
+    const { data, content: body } = parseFrontmatter(postFiles[path]);
+    setMetadata(data);
+    setContent(body);
+    setError(null);
   }, [slug]);
 
   if (error) {
@@ -99,6 +103,7 @@ const BlogPost = ({ onThemeClick }) => {
         )}
         <ReactMarkdown
           remarkPlugins={[remarkGfm]}
+          rehypePlugins={[rehypeRaw]}
           components={{
             a: ({ href, children }) => (
               <a href={href} target="_blank" rel="noopener noreferrer">

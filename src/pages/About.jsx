@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMusic, faFaceGrinStars, faFire } from '@fortawesome/free-solid-svg-icons';
 import styles from '../styles/About.module.css';
 import ActivityGrid from '../components/ActivityGrid';
 
@@ -12,7 +10,6 @@ const roles = [
   'musician',
   'developer',
   'hockey fan',
-  'informatician',
   'problem solver',
 ];
 
@@ -57,36 +54,30 @@ const TypeWriter = () => {
 };
 
 const listeningTo = [
-  { title: 'Immanuel Wilkins Quartet: Live at the Village Vanguard Vol. 1', artist: 'Immanuel Wilkins', url: 'https://open.spotify.com/album/3hF2wgxqoKyx9MI3ZOkB91?si=IWlqh_4NRHGqnE10CPcpfg' },
-  { title: 'Eddie Told Me So', artist: 'Bob Reynolds', url: 'https://open.spotify.com/album/2DoqgzzWEaATKJgMp5xUhm?si=8cjzve2pQwiDsvwJ3HDdew' },
+  { title: 'FLy With the Wind', artist: 'McCoy Tyner', url: 'https://open.spotify.com/album/5azhVitYbm5tBqr79bzC02?si=wqme6uHmRdGg-_N-F0hVZQ' },
+  { title: 'Esperanza', artist: 'Esperanza Spalding', url: 'https://open.spotify.com/album/4JY0pT22MDOxKnIlTCr75G?si=n3XotfYpQRWgcyyw-r3RdQ' },
   { title: 'Dying of Thirst', artist: 'New Jazz Underground', url: 'https://open.spotify.com/album/67nTCjwRIY6k9X78vhd6uC?si=cx8DP39jTO-6xNW_BDKftQ' },
   { title: 'untitled unmastered.', artist: 'Kendrick Lamar', url: 'https://open.spotify.com/album/0kL3TYRsSXnu0iJvFO3rud?si=P9Z05zbIRGaQNK_cAAy8Fw' },
-];
-
-const interests = [
-  'Computational Healthcare', 'AI Interpretability', 'Genomics', 
-  'Neuroscience', 'Precision Medicine', 'Mental Health Advocacy', 'Ice Hockey', 'Jazz', 'Cooking', 
 ];
 
 const About = () => (
   <div className={styles.about}>
 
     <section className={styles.intro}>
-      <p className={styles.greeting}>Hi, I'm Stephen!</p>
+      
+      <h1 className={styles.greeting}>Hi, I'm Stephen!</h1>
       <p className={styles.roleLine}>
         I'm a <TypeWriter /><span className={styles.cursor}>|</span>
       </p>
       <p className={styles.bio}>
-        Always up for a good conversation - especially about AI
-        interpretability, clinical decision support systems, or whatever odd problem you're working on.{' '}
+        Always up for an good conversation - especially about AI interpretability, clinical decision support systems, or whatever odd problem you're working on.{' '}
         <Link to="/contact">Say hi :)</Link>
       </p>
     </section>
 
     <section className={styles.section}>
       <h2 className={styles.sectionTitle}>
-        <FontAwesomeIcon icon={faMusic} className={styles.sectionIcon} />
-        Here's what I'm currently listening to
+        Recent Listens!
       </h2>
       <ul className={styles.musicList}>
         {listeningTo.map((album) => (
@@ -103,22 +94,7 @@ const About = () => (
     </section>
 
     <section className={styles.section}>
-      <h2 className={styles.sectionTitle}>
-        <FontAwesomeIcon icon={faFaceGrinStars} className={styles.sectionIcon} />
-        Interests
-      </h2>
-      <div className={styles.tags}>
-        {interests.map((tag) => (
-          <span key={tag} className={styles.tag}>{tag}</span>
-        ))}
-      </div>
-    </section>
-
-    <section className={styles.section}>
-      <h2 className={styles.sectionTitle}>
-        <FontAwesomeIcon icon={faFire} className={styles.sectionIcon} />
-        Activity
-      </h2>
+      <h2 className={styles.sectionTitle}>Vibe check</h2>
       <ActivityGrid />
     </section>
 
